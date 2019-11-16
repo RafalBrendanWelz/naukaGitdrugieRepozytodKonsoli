@@ -1,0 +1,7 @@
+Project kalafior start:
+run kalafior.exe 
+	initialize kalafior/data
+	terefere
+	avoid errors
+	conclusion
+   exit

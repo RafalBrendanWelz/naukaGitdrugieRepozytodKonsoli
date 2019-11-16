@@ -1,0 +1,2 @@
+To jest drugie repozytorium które stworzone jest od konsoli
+do githubu.
