@@ -69,12 +69,16 @@ public class Main {
     private static String wpiszTekst(){
         Scanner wpisuj = new Scanner(System.in);
         System.out.println("Wpisz tekst");
-        return wpisuj.nextLine();
+
+        return pominInterpunkcje(wpisuj.nextLine());
     }
 
+    private static String pominInterpunkcje(String nextLine) {
+        nextLine = nextLine.toUpperCase();
+        nextLine = nextLine.trim();
 
-
-
+        return nextLine;
+    }
 
 
 }
