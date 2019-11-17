@@ -4,14 +4,12 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-    static String tekstWpisany;
-    static char[] tekstOdwrocony;
-
+    private static char[] tekstOdwrocony;
 
     public static void main(String[] args) {
         System.out.println("Witamy w programie z palindromami");
 
-        tekstWpisany = wpiszTekst();
+        String tekstWpisany = wpiszTekst();
 
         tekstOdwrocony = odwrocTekst(tekstWpisany);
 
@@ -74,40 +72,13 @@ public class Main {
     }
 
     private static String normalizacja(String nextLine) {
-        nextLine = nextLine.toUpperCase();
-        nextLine = nextLine.trim();
-
-        char[] normalizuje = nextLine.toCharArray();
-        nextLine = usunSpacje(normalizuje);
+        nextLine = nextLine.toUpperCase().trim();
+        nextLine = nextLine.replace(" ", "");   //łatwiejszy sposób usuwania spacji przez zamienianie wszystkich znaków
+                                                                    //z tekstu na jakiś inny (powinno być pusty)
 
         return nextLine;
     }
 
-    private static String usunSpacje(char[] normalizuje) {
-        int ileUciac = 0;
-
-        for (int i = 0; i < normalizuje.length-ileUciac; i++) {
-
-            if (normalizuje[i] == ' ') {            //find all spaces i usun (zamien z nast)
-                ileUciac++;
-                for (int j = i; j < normalizuje.length-1; j++) {
-                    normalizuje[j] = normalizuje[j + 1];
-                    normalizuje[j + 1] = ' ';
-                }
-            }
-        }
-
-        System.out.println(ileUciac);
-        char[] poUsunieciu = new char[normalizuje.length - ileUciac];
-        String doZwrotu = "";          //string builder wywala problem z lang.nullpointerexception
-        
-        for (int i = 0; i < poUsunieciu.length; i++) {
-            poUsunieciu[i] = normalizuje[i];
-            doZwrotu += poUsunieciu[i];
-        }
-
-        return doZwrotu;
-    }
 
 
 }
